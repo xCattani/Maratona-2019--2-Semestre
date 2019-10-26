@@ -1,0 +1,58 @@
+import java.util.Scanner;
+
+public class Exercício01 {
+	public static void main(String[] args) {
+		
+		Scanner pa = new Scanner(System.in);
+		Scanner jog = new Scanner(System.in);
+		int J;
+		
+		
+		J = jog.nextInt();
+		String linha[] = new String[J];
+		
+		for (int i = 0; i < linha.length; i++) {
+			
+			int palito = 0;
+			linha[i] = pa.nextLine();
+			
+			String aux[] = linha[i].split(" ");
+					
+			for (int j = 0; j < 2; j++) {
+						char[] Aux = aux[i].toCharArray();
+						
+						for (int k = 0; k < Aux.length; k++) {
+							if (Aux[k] == 'I') {
+								palito += 1;
+							}
+						}
+			}
+			
+			int Jilo;
+			if (aux[2] == "lona") {
+				Jilo = 0;
+				break;
+			} else {
+				Jilo = Integer.parseInt(aux[2]);
+			}
+			
+			int Ferrugem;
+			if (aux[3] == "lona") {
+				Ferrugem = 0;
+				break;
+			} else {
+				Ferrugem = Integer.parseInt(aux[3]);
+			}
+			
+			if (Jilo == palito) {
+				System.out.println("Jilo");
+			} else if (Ferrugem == palito) {
+				System.out.println("Ferrugem");
+			} else {
+				System.out.println("Empate");
+			}
+			
+		}
+		
+	}
+}

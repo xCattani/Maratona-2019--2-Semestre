@@ -1,0 +1,40 @@
+import java.util.Scanner;
+
+public class Exercício06 {
+
+    public static void main(String[] args) {
+        
+        Scanner num = new Scanner(System.in);
+        
+        int func[] = new int [3];
+        
+        int menor = 0;
+        
+        int tempo[] = new int [3];
+        
+        for (int i = 0; i < func.length; i++) {
+            func[i] = num.nextInt();
+        }
+        
+        for (int i = 0; i < func.length; i++) {
+            for (int j = 0; j < func.length; j++) {
+            	int dif = j - i;
+            	if (dif < 0) {
+            		dif = dif * -1;
+            	}
+            		tempo[i] = func[j] * dif * 2;
+            	
+            }
+        }
+        
+        for (int i = 0; i < tempo.length; i++) {
+			if (tempo[i] < menor) {
+				menor = tempo[i];
+				System.out.println(tempo[i]);
+			}
+		}
+        
+        System.out.println(menor);
+    }
+    
+}

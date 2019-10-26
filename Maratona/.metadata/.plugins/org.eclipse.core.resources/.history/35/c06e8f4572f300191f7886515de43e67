@@ -1,0 +1,61 @@
+import java.util.Scanner;
+
+public class Exercício03 {
+	
+	public static void main(String[] args) {
+	    
+		Scanner sc = new Scanner(System.in);
+		
+		char Alfabeto[] = {'A', 'B', 'C','D', 'E', 'F','G', 'H','I', 'J', 'K','L',
+	    		   'M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'};
+	    
+	    char Cript[] = {'D', 'E', 'F','G', 'H','I', 'J', 'K','L',
+	 		   'M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z','A','B','C'};
+	    
+	    System.out.println("Digite um texto MAIÚSCULO");
+	    
+	    String texto;
+	    
+	    boolean rep = true;
+	    
+	    int REP = 0;
+	    do {
+			
+	    	texto = sc.nextLine();
+	    	
+	    	if (texto == "0") {
+				rep = false;
+			} else {
+				char[] div = texto.toCharArray();
+				
+				for (int i = 0; i < div.length; i++) {
+
+					for (int j = 0; j <= Cript.length; j++) {
+						
+						if (div[i] == Cript[j]) {
+							
+							div[i] = Alfabeto[j];
+							
+						}
+							
+						}
+						
+					}
+				for (int i = 0; i < div.length; i++) {
+					
+					System.out.print(div[i]);
+					
+				}	
+				
+				}
+			
+	    	if (rep) {
+				REP = 1;
+			}
+		} while (REP == 0);
+	    
+	    
+	    
+	    
+	}
+}

@@ -1,0 +1,88 @@
+import java.lang.reflect.Method;
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Exercício02 {
+	
+	public static void main(String[] args) {
+		Scanner teclado = new Scanner(System.in);
+		Scanner tecla = new Scanner(System.in);
+		System.out.print("Informe o número de competidores:");
+		int C = teclado.nextInt();//recebendo o número de participantes
+		
+		String n[] = new String [C];
+	
+		int R[] = new int [C];
+		
+		int i = 0;
+		
+		while (i < C) {
+			System.out.print("Informe o numero e os tempos deste competidor:");
+			String	entrada = tecla.nextLine();
+			String tempos[] = entrada.split(" ");
+			n[i] = tempos[0];
+			String tempod;
+			int tem = 0;
+			
+			R[i] = 0;
+			int j = 1;
+			while (j <= 10) {
+				
+			    tempod =  tempos[j];
+				 						
+				String tempodid[] = tempod.split(":"); //dividindo cada tempo em vetor 
+								
+					int hor, min, sec;
+					
+					hor = Integer.parseInt(tempodid[0]);	
+					min = Integer.parseInt(tempodid[1]);
+					sec = Integer.parseInt(tempodid[2]);
+				 
+				
+					 
+				min = min + (hor * 60);
+			    sec = sec + (min * 60);
+			    tem = tem + sec;
+			 	
+			     j = j + 1;
+			     R[i] = R[i] + tem;
+			}
+			  
+		
+			   i = i + 1;
+			 
+		}
+	
+	    for (int g = 0; g < C; g++) {
+		for (int j = 1; j < C; j++) {
+
+			if (R[j] > R[g]) {
+				
+				int aux1 = R[j + 1];
+				R[j++] = R[j];
+				R[j] = aux1;
+				
+			    String aus1 = n[j++];
+				n[j++] = n[j];
+				n[j] = aus1;
+
+			} 
+        	
+		}
+	
+	    }
+	    
+		
+	
+        for (int k = 0; k < C; k++) {
+        	System.out.println(n[k] + " " + R[k]);
+			
+		}
+	}
+	
+	}
+
+
+
+
+
